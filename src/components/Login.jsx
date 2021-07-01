@@ -4,18 +4,16 @@ import "../style.css";
 
 function Login() {
   return (
-    <div className="login__page">
-      <div className="login__card">
+    <div id="login__page">
+      <div id="login__card">
         <h2>Welcome to chat Engine!</h2>
         <div className="login__button google">
-          <GoogleOutlined />
-          Sign In with Google
+          <GoogleOutlined /> Sign In with Google
         </div>
         <br />
         <br />
-        <div className="login__button google">
-          <FacebookOutlined />
-          Sign In with Facebook
+        <div className="login__button facebook">
+          <FacebookOutlined /> Sign In with Facebook
         </div>
       </div>
     </div>
