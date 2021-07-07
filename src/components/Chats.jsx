@@ -27,9 +27,9 @@ function Chats() {
       return;
     }
     axios
-      .get("https://chatengine.io/users/me", {
+      .get("https://chatengine.io/users/me/", {
         headers: {
-          "project-id": "316146e5-2748-4e7c-a5b4-cf4c02930fb2",
+          "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
           "user-secret": user.uid,
         },
@@ -47,9 +47,9 @@ function Chats() {
           formdata.append("avatar", avatar, avatar.name);
 
           axios
-            .post("https://api.chatengine.io/users", formdata, {
+            .post("https://api.chatengine.io/users/", formdata, {
               headers: {
-                "private-key": "72288994-c2e0-401b-93ab-3f5d91738a23",
+                "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
               },
             })
             .then(() => setLoading(false))
@@ -58,7 +58,6 @@ function Chats() {
       });
   }, [user, history]);
 
-  if (!user || loading) return "Loading...";
   return (
     <div className="chats__page">
       <div className="nav__bar">
@@ -69,12 +68,10 @@ function Chats() {
       </div>
       <ChatEngine
         height="calc(100vh - 66px)"
-        projectID="316146e5-2748-4e7c-a5b4-cf4c02930fb2"
-        userName="{user.email}"
-        userSecret="{user.uid}"
+        projectID={process.env.REACT_APP_CHAT_ENGINE_ID}
+        userName={user.email}
+        userSecret={user.uid}
       />
     </div>
   );
 }
-
-export default Chats;
