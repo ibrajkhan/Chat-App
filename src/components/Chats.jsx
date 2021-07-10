@@ -61,7 +61,9 @@ function Chats() {
   return (
     <div className="chats__page">
       <div className="nav__bar">
-        <div className="logo__tab">Chat Engine</div>
+        <div className="logo__tab">
+          Gossip <span className="owner">by Ibraj Khan</span>
+        </div>
         <div onClick={handelLogOut} className="logout__tab">
           Logout
         </div>
@@ -75,3 +77,4 @@ function Chats() {
     </div>
   );
 }
+export default Chats;

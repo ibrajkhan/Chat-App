@@ -75,3 +75,13 @@
   width: 0; /* Remove scrollbar space */
   background: transparent; /* Optional: just make scrollbar invisible */
 }
+.owner {
+  font-size: 18px;
+  font-family: "Caveat", cursive;
+}
+@media (max-width: 768px) {
+  #login__card {
+    width: 80%;
+    margin-left: 58px;
+  }
+}
