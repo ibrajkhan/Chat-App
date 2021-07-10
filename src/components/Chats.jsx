@@ -27,7 +27,7 @@ function Chats() {
       return;
     }
     axios
-      .get("https://chatengine.io/users/me/", {
+      .get("https://api.chatengine.io/users/me", {
         headers: {
           "project-id": process.env.REACT_APP_CHAT_ENGINE_ID,
           "user-name": user.email,
@@ -47,7 +47,7 @@ function Chats() {
           formdata.append("avatar", avatar, avatar.name);
 
           axios
-            .post("https://api.chatengine.io/users/", formdata, {
+            .post("https://api.chatengine.io/users", formdata, {
               headers: {
                 "private-key": process.env.REACT_APP_CHAT_ENGINE_KEY,
               },
@@ -57,6 +57,8 @@ function Chats() {
         });
       });
   }, [user, history]);
+
+  if (!user || loading) return <h3>Loading...</h3>;
 
   return (
     <div className="chats__page">
