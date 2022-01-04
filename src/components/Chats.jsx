@@ -57,9 +57,7 @@ function Chats() {
         });
       });
   }, [user, history]);
-
   if (!user || loading) return <h3>Loading...</h3>;
-
   return (
     <div className="chats__page">
       <div className="nav__bar">
